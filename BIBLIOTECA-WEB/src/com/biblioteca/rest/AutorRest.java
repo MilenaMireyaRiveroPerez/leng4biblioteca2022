@@ -56,7 +56,7 @@ public class AutorRest {
 
 	@DELETE
 	@Path("/eliminar/{id}")
-	private void eliminar(@PathParam("id") Integer codigo) {
+	public void eliminar(@PathParam("id") Integer codigo) {
 		as.eliminar(codigo);
 
 	}
@@ -73,7 +73,7 @@ public class AutorRest {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/buscarPorCodigo")
-	public Autor buscar(@PathParam("codigo") Integer codigo) throws Exception {
+	public Autor buscarPorCodigo(@QueryParam("codigo") Integer codigo){
 		return as.buscarPorCodigo(codigo);
 	}
 	
