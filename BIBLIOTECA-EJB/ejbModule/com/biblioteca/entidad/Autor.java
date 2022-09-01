@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +25,24 @@ public class Autor implements Serializable {
 
 	@Column(name = "aut_nombre")
 	private String nombre;
+
+	@ManyToOne                  /////una ciudad tiene muchos autores many es lado de la clase
+	@JoinColumn(name = "aut_ciudad")
+	private Ciudad ciudad;
+	
+	
+	
+	
+	
+	
+	
+	public Ciudad getCiudad() {
+		return ciudad;
+	}
+
+	public void setCiudad(Ciudad ciudad) {
+		this.ciudad = ciudad;
+	}
 
 	@Column(name = "aut_foto")
 	private byte[] foto;

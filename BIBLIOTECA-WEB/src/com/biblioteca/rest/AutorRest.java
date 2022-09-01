@@ -1,5 +1,6 @@
 package com.biblioteca.rest;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -31,8 +32,18 @@ public class AutorRest {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/consultar")
-	public List<Autor> consultar(String nombre) {
-		return as.consultarAutores();
+	public Map<String, Object> consultar(String nombre) {
+		Map<String, Object> retorno  = new HashMap<String, Object>();
+		try {
+			
+			retorno.put("success", true);
+			retorno.put("result", as.consultarAutores());
+		} catch (Exception e) {
+			retorno.put("success", false);
+			retorno.put("error", e.getMessage()); 	
+			
+		}
+		return retorno;
 
 	}
 
@@ -42,15 +53,31 @@ public class AutorRest {
 	// parametros: ""queryparam"", pathparam, bodyparam
 	// abajo se usa queryparam
 	public Map<String, Object> consultarPorNombre(@QueryParam("nombre") String nombre) {
-		return as.consultarAutoresPorNombre(nombre);
+		Map<String, Object> retorno  = new HashMap<String, Object>();
+		try {
+			retorno.put("success", true);
+			retorno.put("result", as.consultarAutoresPorNombre(nombre));
+		} catch (Exception e) {
+			retorno.put("success", false);
+			retorno.put("error", e.getMessage()); 
+		}
+		return retorno ;
 
 	}
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/incluir")
-	public Autor incluir(Autor autor) {
-		return as.incluir(autor);
+	public Map<String, Object> incluir(Autor autor) {
+		Map<String, Object> retorno  = new HashMap<String, Object>();
+		try {
+			retorno.put("success", true);
+			retorno.put("result", as.incluir(autor));
+		} catch (Exception e) {
+			retorno.put("success", false);
+			retorno.put("error", e.getMessage());
+		}
+		return retorno;
 
 	}
 
@@ -65,23 +92,47 @@ public class AutorRest {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/actualizar")
-	public Autor actualizar(Autor autor){
-		return as.actualizar(autor);
+	public Map<String, Object> actualizar(Autor autor){
+		Map<String, Object> retorno  = new HashMap<String, Object>();
+		try {
+			retorno.put("success", true);
+			retorno.put("result", as.actualizar(autor));
+		} catch (Exception e) {
+			retorno.put("success", false);
+			retorno.put("error", e.getMessage()); 
+		}
+		return retorno;
 
 	}
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/buscarPorCodigo")
-	public Autor buscarPorCodigo(@QueryParam("codigo") Integer codigo){
-		return as.buscarPorCodigo(codigo);
+	public Map<String, Object> buscarPorCodigo(@QueryParam("codigo") Integer codigo){
+		Map<String, Object> retorno  = new HashMap<String, Object>();
+		try {
+			retorno.put("success", true);
+			retorno.put("result", as.buscarPorCodigo(codigo));
+		} catch (Exception e) {
+			retorno.put("success", false);
+			retorno.put("error", e.getMessage()); 
+		}
+		return retorno;
 	}
 	
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/editar")
-	public Autor editar(Autor autor){
-		return as.editar(autor);
+	public Map<String, Object> editar(Autor autor){
+		Map<String, Object> retorno  = new HashMap<String, Object>();
+		try {
+			retorno.put("success", true);
+			retorno.put("result", as.editar(autor));
+		} catch (Exception e) {
+			retorno.put("success", false);
+			retorno.put("error", e.getMessage());
+		}
+		return retorno;
 
 	}
 }
