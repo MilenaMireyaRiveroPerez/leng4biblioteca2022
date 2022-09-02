@@ -83,8 +83,16 @@ public class AutorRest {
 
 	@DELETE
 	@Path("/eliminar/{id}")
-	public void eliminar(@PathParam("id") Integer codigo) {
-		as.eliminar(codigo);
+	public Map<String, Object> eliminar(@PathParam("id") Integer codigo) {
+		Map<String, Object> retorno  = new HashMap<String, Object>();
+		try {
+			retorno.put("success", true);
+			as.eliminar(codigo); 
+		} catch (Exception e) {
+			retorno.put("success", false);
+			retorno.put("error", e.getMessage());
+		}
+		return retorno;
 
 	}
 
