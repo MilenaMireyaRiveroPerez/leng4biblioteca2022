@@ -1,7 +1,8 @@
 package com.biblioteca.abm.rest;
 
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 import javax.ejb.EJB;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -10,7 +11,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-
 import com.biblioteca.abm.session.CiudadSession;
 import com.biblioteca.entidad.Ciudad;
 
@@ -28,7 +28,6 @@ public class CiudadRestService {
 	public List<Ciudad> listar() throws Exception {
 		return cs.buscarTodos();
 	}
-
 	// GET http://localhost:8080/PROYECTO-REST/rest/ciudad/find/n
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)

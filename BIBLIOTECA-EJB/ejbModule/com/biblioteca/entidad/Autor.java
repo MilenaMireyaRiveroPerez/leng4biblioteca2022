@@ -1,7 +1,6 @@
 package com.biblioteca.entidad;
 
 import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,12 +28,6 @@ public class Autor implements Serializable {
 	@ManyToOne                  /////una ciudad tiene muchos autores many es lado de la clase
 	@JoinColumn(name = "aut_ciudad")
 	private Ciudad ciudad;
-	
-	
-	
-	
-	
-	
 	
 	public Ciudad getCiudad() {
 		return ciudad;

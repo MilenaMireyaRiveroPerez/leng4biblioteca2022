@@ -14,12 +14,16 @@ public class Libro implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	@Column(name = "lib_codigo")
 	private Integer codigo;
+	
 	@Column(name = "lib_descripcion")
 	private String descripcion;
+	
 	@Column(name = "lib_cantidad")
 	private Integer cantidad;
+	
 	@Column(name = "lib_obs")
 	private String obs;
 

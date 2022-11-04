@@ -4,11 +4,14 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceUnit;
+
 import com.biblioteca.entidad.Ciudad;
 
 @Stateless
 public class CiudadSession {
 	@PersistenceContext
+
 	EntityManager em;
 
 	public List<Ciudad> buscarTodos() throws Exception {

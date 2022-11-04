@@ -21,19 +21,25 @@ public class Prestamo implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "pre_numero")
 	private Integer numero;
+	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "pre_fecha")
 	private Date fecha;
+	
 	@ManyToOne
 	@JoinColumn(name = "pre_cliente")
 	private Cliente cliente;
+	
 	@Column(name = "pre_situacion")
 	private Integer situacion;
+	
 	@ManyToOne
 	@JoinColumn(name = "pre_usuario")
 	private Usuario usuario;
+	
 	@Column(name = "pre_total")
 	private Double total;
+	
 	@Column(name = "pre_observacion")
 	private String observacion;
 

@@ -24,16 +24,21 @@ public class PrestamoLibro implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "pli_prestamo")
 	private Prestamo prestamo;
+	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "pli_fecha_devolucion")
 	private Date fechaDevolucion;
+	
 	@Column(name = "pli_dias")
 	private Integer dias;
+	
 	@Column(name = "pli_estado")
 	private Integer estado;
+	
 	@ManyToOne
 	@JoinColumn(name = "pli_libro")
 	private Libro libro;
+	
 	@Column(name = "pli_valor")
 	private Double valor;
 
