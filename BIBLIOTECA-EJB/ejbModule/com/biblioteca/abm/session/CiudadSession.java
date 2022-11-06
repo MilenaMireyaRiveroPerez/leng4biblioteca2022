@@ -25,7 +25,7 @@ public class CiudadSession {
 	}
 
 	public Ciudad actualizar(Ciudad ciudadAct) throws Exception {
-		Ciudad ciudad = buscarPorCodigo(ciudadAct.getCodigo()); // Busca el objeto
+		Ciudad ciudad = buscarPorCodigo(ciudadAct.getCodigo()); // Busca el objeto **
 //ciudad
 		if (ciudad == null) { // Si no encuentra ciudad valdrá null
 			ciudadAct.setCodigo(null); // para que la bd auto-genere el ID
